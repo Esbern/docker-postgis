@@ -1,5 +1,3 @@
-[![Scenario Tests](https://github.com/kartoza/docker-postgis/actions/workflows/build-latest.yaml/badge.svg?branch=develop&event=push)](https://github.com/kartoza/docker-postgis/actions/workflows/build-latest.yaml)
-[![deploy-image](https://github.com/kartoza/docker-postgis/actions/workflows/deploy-image.yaml/badge.svg)](https://github.com/kartoza/docker-postgis/actions/workflows/deploy-image.yaml)
 
 # Table of Contents
 
@@ -49,26 +47,17 @@
 
 # docker-postgis
 
-A simple docker container that runs PostGIS
+A simple docker container that runs PostGIS. This image is a foork of the [kartoza/postgis project](https://github.com/kartoza/docker-postgis) and i manly just a custimisation of this project
 
-Visit our page on the docker hub at: https://hub.docker.com/r/kartoza/postgis/
-
-There are a number of other docker postgis containers out there. This one
-differentiates itself by:
 
 * Provides SSL support out of the box and enforces SSL client connections
-* Connections are restricted to the docker subnet
-* A default database `gis` is created for you so you can use this container '*out of the box*' when
-    it runs with e.g. `QGIS`
-* Streaming replication and logical replication support included (turned off by default)
-* Ability to create multiple database when starting the container.
-* Ability to create multiple schemas when starting the container.  
-* Enable multiple extensions in the database when setting it up.
+* Connections are by default restricted to the docker subnet
+* Several databases are set up for the this specific projects
+*   `gis` is created for you so you can use this container '*out of the box*' when
+    LandscapeModel
 * `Gdal` drivers automatically registered for pg raster.
 * Support for out-of-db rasters.
 
-We will work to add more security features to this container in the future with the aim of making a
-`PostGIS` image that is ready to be used in a production environment (though probably not for heavy load databases).
 
 There is a nice 'from scratch' tutorial on using this docker image on Alex Urquhart's blog
 [here](https://alexurquhart.com/post/set-up-postgis-with-docker/) - if you are just getting started
