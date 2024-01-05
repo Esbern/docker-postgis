@@ -25,6 +25,9 @@ services:
     restart: on-failure
     healthcheck:
       test: "PGPASSWORD=docker pg_isready -h 127.0.0.1 -U docker -d gis"
+    networks:
+      project_network:
+
 
 
   dbbackups:
@@ -42,3 +45,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      project_network:
+
+
+networks:
+  project_network:
+    external: true
